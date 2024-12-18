@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+
+}
+
+
+
+
+publishing {
+    repositories {
+        maven {
+            url 'https://mymavenrepo.com/repo/hnCnJJ9nQAeIt28GY0az'
+            credentials {
+                username 'myMavenRepo'
+                password 'nesrine'
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+
+}
